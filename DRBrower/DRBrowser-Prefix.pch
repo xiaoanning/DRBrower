@@ -1,0 +1,107 @@
+//
+//  DRBrowser-Prefix.pch
+//  DRBrower
+//
+//  Created by QiQi on 2016/12/21.
+//  Copyright © 2016年 QiQi. All rights reserved.
+//
+
+#ifndef DRBrowser_Prefix_pch
+#define DRBrowser_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#pragma mark - 头文件
+#import <Mantle/Mantle.h>
+#import "AXStretchableHeaderTabViewController.h"
+#import "UIImageView+WebCache.h"
+#import "MZFormSheetPresentationViewControllerSegue.h"
+#import "MJRefresh.h"
+#import "SWTableViewCell.h"
+#import "UIScrollView+EmptyDataSet.h"
+#import <Colours.h>
+#import <MBProgressHUD.h>
+#import <Realm/Realm.h>
+#import "Masonry.h"
+#import "QRCodeReaderViewController.h"
+
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+//腾讯开放平台（对应QQ和QQ空间）SDK头文件
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+//微信SDK头文件
+#import "WXApi.h"
+#import <CoreLocation/CoreLocation.h>
+
+#import "DRDataService.h"
+#import "DRLocaldData.h"
+#import "DRImageView.h"
+#import "UIImage+DRImageClip.h"
+#import "Tools.h"
+#import "Define.h"
+#import "AllUrls.h"
+#import "Define.h"
+#import "DRRealmPublic.h"
+#import "DRLocationManager.h"
+#import "DRGeocoder.h"
+
+#import "UserInfo.h"
+#import "KeychainTool.h"
+
+#pragma mark - 常量
+#define TAG_ID_RECOMMEND @"100"
+#define SCREEN_HEIGHT [[UIScreen mainScreen]bounds].size.height
+#define SCREEN_WIDTH [[UIScreen mainScreen]bounds].size.width
+
+#define UP_LOAD @"上拉"
+#define DOWN_LOAD @"下拉"
+
+#define WEBVIEW_FONT @"webViewFont"
+#define WEBVIEW_FONT_KEY @"webViewFontKey"
+#define USERINFO_GENDER @"gender"
+
+#define COLLECT_SUCCESS @"收藏成功"
+#define COLLECT_FAILED @"已收藏"
+
+#define REALM_HISTORY @"history"
+#define REALM_COLLECT @"collect"
+
+#define WEIXIN_APPID @"wxdc03861e4dfb37c0"
+#define WEIXIN_APPKEY @"8e3efff34eb34066e21362df582d1a58"
+#define QQ_APPID @"1105997278"
+#define QQ_APPKEY @"0IpJBDsSAVxLXHC0"
+
+#define MENU_HEIGHT 260
+
+#pragma mark - 通知
+#define DISMISS_VIEW @"dissmissView"
+
+#pragma mare - defaults
+#define kFullScreen @"isFullScreen"//是否全屏
+
+#define app_light @"appBirghtness"
+#define sys_light @"sysBrightness"
+
+#define LOGIN_TOKEN @"loginToken" //登陆成功
+#define LOGIN_UID @"loginUid"
+
+#define DEV_ID [[UIDevice currentDevice].identifierForVendor UUIDString]
+
+#define TOKEN [KeychainTool getKeychainValue:LOGIN_TOKEN]?[KeychainTool getKeychainValue:LOGIN_TOKEN]:@"brower*@forapi@*"
+#define UID [KeychainTool getKeychainValue:LOGIN_UID]
+
+#define GET_LOCATION @"getLocation" 
+
+#define CITY @"localCity"
+#define SUBLOCALITY @"localSubLocality"
+
+#define SortTagArrPath [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingString:@"/tagTagArr.plist"]
+
+#endif /* DRBrowser_Prefix_pch */
+
+
+
+
+
+

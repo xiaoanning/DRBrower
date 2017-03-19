@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--SearchVC-->
+        <scene sceneID="Eag-m2-0Ak">
+            <objects>
+                <viewController storyboardIdentifier="SearchVC" id="ged-YR-UaG" customClass="SearchVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nx6-ng-zl0"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xv9-zT-Hg7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qMC-h6-QBA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ggf-ss-5p1" customClass="HomeToolBar">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z0O-FG-icD">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iR-3W-idr">
+                                                <rect key="frame" x="0.0" y="7" width="75" height="30"/>
+                                                <state key="normal" image="toolBar_back"/>
+                                                <connections>
+                                                    <action selector="didclickBackButtonAction:" destination="Ggf-ss-5p1" eventType="touchUpInside" id="Q6h-iK-Iwu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lui-eE-tv9">
+                                                <rect key="frame" x="75" y="7" width="75" height="30"/>
+                                                <state key="normal" image="toolBar_go"/>
+                                                <connections>
+                                                    <action selector="didclickGoButtonAction:" destination="Ggf-ss-5p1" eventType="touchUpInside" id="JRE-22-jmO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqw-fB-aW2">
+                                                <rect key="frame" x="150" y="7" width="75" height="30"/>
+                                                <state key="normal" image="toolBar_menu"/>
+                                                <connections>
+                                                    <action selector="didclickMenuButtonAction:" destination="Ggf-ss-5p1" eventType="touchUpInside" id="eEl-cO-q5X"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8I-ej-bal">
+                                                <rect key="frame" x="225" y="7" width="75" height="30"/>
+                                                <state key="normal" image="toolBar_share"/>
+                                                <connections>
+                                                    <action selector="didclickPageButtonAction:" destination="Ggf-ss-5p1" eventType="touchUpInside" id="15v-YU-wXa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeR-pv-j63">
+                                                <rect key="frame" x="300" y="7" width="75" height="30"/>
+                                                <state key="normal" image="toolbar_home"/>
+                                                <connections>
+                                                    <action selector="didclickHomeButtonAction:" destination="Ggf-ss-5p1" eventType="touchUpInside" id="Pei-DS-VIQ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92931067940000001" green="0.92946994299999997" blue="0.92930072549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="z0O-FG-icD" firstAttribute="top" secondItem="Ggf-ss-5p1" secondAttribute="top" id="4GG-Xa-R8y"/>
+                                    <constraint firstAttribute="trailing" secondItem="z0O-FG-icD" secondAttribute="trailing" id="A7E-OF-fL7"/>
+                                    <constraint firstItem="z0O-FG-icD" firstAttribute="leading" secondItem="Ggf-ss-5p1" secondAttribute="leading" id="Xd9-62-4oV"/>
+                                    <constraint firstAttribute="height" constant="44" id="Zn2-7R-bkp"/>
+                                    <constraint firstAttribute="bottom" secondItem="z0O-FG-icD" secondAttribute="bottom" id="vzj-ZX-DIg"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="backBtn" destination="3iR-3W-idr" id="Dg8-Hy-jsK"/>
+                                    <outlet property="goBtn" destination="lui-eE-tv9" id="hWR-Go-q1V"/>
+                                    <outlet property="homeBtn" destination="VeR-pv-j63" id="FtV-Gp-3ZU"/>
+                                    <outlet property="menuBtn" destination="Hqw-fB-aW2" id="QGv-WG-d2d"/>
+                                    <outlet property="pageBtn" destination="V8I-ej-bal" id="9gk-cP-Sfg"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TfI-L2-82x">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_bagimg" translatesAutoresizingMaskIntoConstraints="NO" id="CCz-lB-TCt">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwg-aa-aPI">
+                                        <rect key="frame" x="20" y="30" width="304" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="gye-wc-N6i"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <state key="normal" title="搜索或输入网址">
+                                            <color key="titleColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didClickTitleButtonAction:" destination="ged-YR-UaG" eventType="touchUpInside" id="6CY-6l-8oU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKu-Nd-Bs2">
+                                        <rect key="frame" x="324" y="27" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="7j9-Iq-gxr"/>
+                                            <constraint firstAttribute="width" constant="36" id="QMY-nt-awp"/>
+                                        </constraints>
+                                        <state key="normal" image="search_reload"/>
+                                        <connections>
+                                            <action selector="didClickReloadButtonAction:" destination="ged-YR-UaG" eventType="touchUpInside" id="bcN-1Y-Gcq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="CCz-lB-TCt" secondAttribute="trailing" id="BhY-p2-Fpo"/>
+                                    <constraint firstAttribute="bottom" secondItem="CCz-lB-TCt" secondAttribute="bottom" id="Bhe-ua-k65"/>
+                                    <constraint firstItem="CCz-lB-TCt" firstAttribute="top" secondItem="TfI-L2-82x" secondAttribute="top" id="Cdy-vb-k76"/>
+                                    <constraint firstItem="CCz-lB-TCt" firstAttribute="leading" secondItem="TfI-L2-82x" secondAttribute="leading" id="NO7-qb-VdG"/>
+                                    <constraint firstItem="fwg-aa-aPI" firstAttribute="leading" secondItem="TfI-L2-82x" secondAttribute="leading" constant="20" id="QmG-zs-HkV"/>
+                                    <constraint firstAttribute="bottom" secondItem="fwg-aa-aPI" secondAttribute="bottom" constant="4" id="XVn-x9-Jve"/>
+                                    <constraint firstAttribute="bottom" secondItem="cKu-Nd-Bs2" secondAttribute="bottom" constant="1" id="YDS-1R-lu4"/>
+                                    <constraint firstAttribute="trailing" secondItem="cKu-Nd-Bs2" secondAttribute="trailing" constant="15" id="d4K-25-UHt"/>
+                                    <constraint firstAttribute="height" constant="64" id="sXf-lY-Ynr"/>
+                                    <constraint firstItem="cKu-Nd-Bs2" firstAttribute="leading" secondItem="fwg-aa-aPI" secondAttribute="trailing" id="t6c-vD-Lpz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Ggf-ss-5p1" firstAttribute="leading" secondItem="qMC-h6-QBA" secondAttribute="leading" id="Xld-mj-Wm9"/>
+                            <constraint firstAttribute="trailing" secondItem="Ggf-ss-5p1" secondAttribute="trailing" id="Y1O-KS-McF"/>
+                            <constraint firstItem="TfI-L2-82x" firstAttribute="leading" secondItem="qMC-h6-QBA" secondAttribute="leading" id="bWF-R0-6xy"/>
+                            <constraint firstItem="Xv9-zT-Hg7" firstAttribute="top" secondItem="Ggf-ss-5p1" secondAttribute="bottom" id="dlc-eJ-IbX"/>
+                            <constraint firstAttribute="trailing" secondItem="TfI-L2-82x" secondAttribute="trailing" id="xUl-Wh-aR4"/>
+                            <constraint firstItem="TfI-L2-82x" firstAttribute="top" secondItem="qMC-h6-QBA" secondAttribute="top" id="yOt-Hl-tr0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="homeToolBar" destination="Ggf-ss-5p1" id="aCU-PF-dwI"/>
+                        <outlet property="navBar" destination="TfI-L2-82x" id="gMp-BB-nQl"/>
+                        <outlet property="titleBtn" destination="fwg-aa-aPI" id="FSa-qs-eC9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FA1-ad-uu2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-818.39999999999998" y="71.514242878560722"/>
+        </scene>
+        <!--ShareVC-->
+        <scene sceneID="heH-33-VcM">
+            <objects>
+                <viewController storyboardIdentifier="ShareVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KgZ-dn-6in" customClass="ShareVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="psO-vo-WKj"/>
+                        <viewControllerLayoutGuide type="bottom" id="G9k-GY-4KK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hON-TV-JmG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="220"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBE-jE-YuP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-818" y="860"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="nav_bagimg" width="414" height="64"/>
+        <image name="search_reload" width="20" height="20"/>
+        <image name="toolBar_back" width="30" height="30"/>
+        <image name="toolBar_go" width="30" height="30"/>
+        <image name="toolBar_menu" width="30" height="30"/>
+        <image name="toolBar_share" width="30" height="30"/>
+        <image name="toolbar_home" width="30" height="30"/>
+    </resources>
+</document>
