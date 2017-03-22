@@ -37,6 +37,13 @@
 #import "NewsPageVC.h"
 #import "NavView.h"
 
+#import "QumiBannerAD.h"
+
+//当前设备是iPad
+#define isPad   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+//当前设备是iPhone
+#define isPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+
 static NSString *const onePicCellIdentifier = @"OnePicCell";
 static NSString *const threePicCellIdentifier = @"ThreePicCell";
 static NSString *const zeroPicCellIdentifier = @"ZeroPicCell";
@@ -45,7 +52,7 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
 #define UP_LOAD @"上拉"
 #define DOWN_LOAD @"下拉"
 
-@interface DRHomeVC ()<MenuVCDelegate, QRCodeReaderDelegate, CLLocationManagerDelegate, NewsMenuDelegate, NavViewDelegate, MoreNewsCellDelegate>
+@interface DRHomeVC ()<MenuVCDelegate, QRCodeReaderDelegate, CLLocationManagerDelegate, NewsMenuDelegate, NavViewDelegate, MoreNewsCellDelegate ,QumiBannerADDelegate>
 
 @property (weak, nonatomic) IBOutlet HomeToolBar *homeToolBar;
 @property (strong, nonatomic) HomeTopView *top;
@@ -62,6 +69,9 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
 @property (nonatomic, strong) DRLocationManager *locationManger;
 @property (nonatomic ,strong) NavView *navView;
 @property (nonatomic,assign) BOOL loginSuccess;
+
+
+@property (nonatomic,retain) QumiBannerAD      *qumiBannerAD;
 
 @end
 
@@ -81,6 +91,7 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.automaticallyAdjustsScrollViewInsets = YES;
+    
     
     NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes = dict;
@@ -109,6 +120,9 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
     if (city) {
         [self getWeatherData:[NSString stringWithFormat:@"%@%@",city,sublocality]];
     }
+    
+    [self initAD];
+
 }
 
 - (void)setupTableView {
@@ -748,14 +762,71 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
     }
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
+-(void)initAD
+{
+    //创建一个banner条广告视图
+    self.qumiBannerAD = [[QumiBannerAD alloc] initWithQumiBannerAD:self];
+    //放置广告条的位置
+    if (isPhone)
+    {
+        //设置广告视图的位置和大小  趣米广告条的尺寸：iPhone手机上是320*50，iPad上是768*100。
+        self.qumiBannerAD.frame = CGRectMake(0, 20, QUMI_AD_SIZE_320x50.width, QUMI_AD_SIZE_320x50.height);
+    }
+    else
+    {
+        self.qumiBannerAD.frame = CGRectMake(0, 20, QUMI_AD_SIZE_768x100.width, QUMI_AD_SIZE_768x100.height);
+    }
+
+    //设置代理
+    self.qumiBannerAD.delegate = self;
+    //开始加载和展示广告 如果请求广告，请填写YES，如果不请求广告，请填写NO
+    [self.qumiBannerAD qmLoadBannerAd:YES];
+    //将广告视图添加到父视图中去
+    [self.view addSubview:self.qumiBannerAD];
+
+    self.qumiBannerAD.alpha = 0.5;
+
+
+}
+
+
+#pragma mark -
+#pragma mark QumiBannerADDelegate Methods
+//加载广告成功后，回调该方法
+- (void)qmAdViewSuccessToLoadAd:(QumiBannerAD *)adView
+{
+    NSLog(@"banner广告加载成功！");
+    
+    //    [adView performSelector:@selector(AzpywAOAqhnomOQC5cde72a14f2543c6)];
+    
+    //    adView.hidden = YES ;
+    
+    for (UIView * sub1 in self.view.subviews)
+    {
+        NSLog(@"111 %@",[sub1 class]);
+        
+        for (UIView * sub2 in sub1.subviews)
+        {
+            NSLog(@"222 %@",[sub2 class]);
+            
+        }
+    }
+    
+}
+//加载广告失败后，回调该方法
+- (void)qmAdViewFailToLoadAd:(QumiBannerAD *)adView qmWithError:(NSError *)error
+{
+    NSLog(@"banner广告加载失败，失败信息是：%@",error);
+}
+
+- (void)qmAdViewClicked:(QumiBannerAD *)adView
+{
+    NSLog(@"点击banner广告！");
+    
+    [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"action3"];
+}
+
+
 
 @end
