@@ -54,6 +54,7 @@
 		4D2F31651E7F66FC005EB2EE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55421AB21E59A54400389B86 /* CoreTelephony.framework */; };
 		4D2F31671E7F6712005EB2EE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2F31661E7F6712005EB2EE /* StoreKit.framework */; };
 		4D2F31691E7F6722005EB2EE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2F31681E7F6722005EB2EE /* AdSupport.framework */; };
+		4D5847CD1E82CAB200C4898A /* HZBADView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5847CC1E82CAB200C4898A /* HZBADView.m */; };
 		5501623D1E7A3EFA00FEA087 /* AboutUs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5501623C1E7A3EFA00FEA087 /* AboutUs.storyboard */; };
 		550162401E7A9B4C00FEA087 /* AboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5501623F1E7A9B4C00FEA087 /* AboutUsVC.m */; };
 		550162431E7A9C9500FEA087 /* PrivacyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 550162421E7A9C9500FEA087 /* PrivacyVC.m */; };
@@ -233,6 +234,8 @@
 		4D2F31631E7F66F6005EB2EE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4D2F31661E7F6712005EB2EE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4D2F31681E7F6722005EB2EE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		4D5847CB1E82CAB200C4898A /* HZBADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZBADView.h; sourceTree = "<group>"; };
+		4D5847CC1E82CAB200C4898A /* HZBADView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZBADView.m; sourceTree = "<group>"; };
 		5501623C1E7A3EFA00FEA087 /* AboutUs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutUs.storyboard; sourceTree = "<group>"; };
 		5501623E1E7A9B4C00FEA087 /* AboutUsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsVC.h; sourceTree = "<group>"; };
 		5501623F1E7A9B4C00FEA087 /* AboutUsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsVC.m; sourceTree = "<group>"; };
@@ -506,6 +509,8 @@
 		4D2F31581E7F61A8005EB2EE /* QumiADLib */ = {
 			isa = PBXGroup;
 			children = (
+				4D5847CB1E82CAB200C4898A /* HZBADView.h */,
+				4D5847CC1E82CAB200C4898A /* HZBADView.m */,
 				4D2F31591E7F61A8005EB2EE /* DQUConfigTool.h */,
 				4D2F315A1E7F61A8005EB2EE /* DQUHeader.h */,
 				4D2F315B1E7F61A8005EB2EE /* libQumiAdSDK.a */,
@@ -1234,6 +1239,7 @@
 				18FF715D1E6D5D1600F7BAA3 /* ForgetPsdVC.m in Sources */,
 				551025581E70F3B500303E62 /* GenderVC.m in Sources */,
 				55421AA41E59979900389B86 /* ShareVC.m in Sources */,
+				4D5847CD1E82CAB200C4898A /* HZBADView.m in Sources */,
 				5510255B1E70F69100303E62 /* UserInfo.m in Sources */,
 				552ADBD51E24EEB5007036CA /* DRLocaldData.m in Sources */,
 				557A940A1E5EDD7D006A2466 /* RecordModel.m in Sources */,
@@ -1417,7 +1423,7 @@
 					"$(PROJECT_DIR)/DRBrower/QumiADLib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hzbank.hzbank.drbrower;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hzbank.drbrower.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ee2f82ec-0078-4f31-b29e-2607a6819dc5";
 				PROVISIONING_PROFILE_SPECIFIER = hzbank_mobile_dev_dis_comm_2015;
@@ -1444,7 +1450,7 @@
 					"$(PROJECT_DIR)/DRBrower/QumiADLib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hzbank.hzbank.drbrower;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hzbank.drbrower.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ee2f82ec-0078-4f31-b29e-2607a6819dc5";
 				PROVISIONING_PROFILE_SPECIFIER = hzbank_mobile_dev_dis_comm_2015;

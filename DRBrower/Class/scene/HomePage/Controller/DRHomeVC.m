@@ -38,6 +38,9 @@
 #import "NavView.h"
 
 #import "QumiBannerAD.h"
+#import "HZBADView.h"
+#import "QumiPartScreen.h"
+
 
 //当前设备是iPad
 #define isPad   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -73,6 +76,8 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
 
 @property (nonatomic,retain) QumiBannerAD      *qumiBannerAD;
 
+@property (nonatomic,retain) QumiPartScreen   *qumiInterCutView;
+
 @end
 
 @implementation DRHomeVC
@@ -92,6 +97,8 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
     [super viewDidLoad];
 //    self.automaticallyAdjustsScrollViewInsets = YES;
     
+    self.qumiInterCutView = [[QumiPartScreen alloc] init];
+
     
     NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes = dict;
@@ -382,6 +389,17 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
     formSheetController.contentViewControllerTransitionStyle = MZFormSheetPresentationTransitionStyleSlideAndBounceFromBottom;
     menuVC.delegate = self;
     [self presentViewController:formSheetController animated:YES completion:nil];
+    
+    
+    [self showad];
+}
+
+
+-(void)showad
+
+{
+    [HZBADView addRootViewController:self];
+    
 }
 //menu-share
 -(void)touchUpShareButtonAction{
@@ -771,7 +789,7 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
     if (isPhone)
     {
         //设置广告视图的位置和大小  趣米广告条的尺寸：iPhone手机上是320*50，iPad上是768*100。
-        self.qumiBannerAD.frame = CGRectMake(0, 20, QUMI_AD_SIZE_320x50.width, QUMI_AD_SIZE_320x50.height);
+        self.qumiBannerAD.frame = CGRectMake(0, 20, CGRectGetWidth([[UIScreen mainScreen]bounds]), 90);
     }
     else
     {
@@ -784,8 +802,6 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
     [self.qumiBannerAD qmLoadBannerAd:YES];
     //将广告视图添加到父视图中去
     [self.view addSubview:self.qumiBannerAD];
-
-    self.qumiBannerAD.alpha = 0.5;
 
 
 }

@@ -6,6 +6,7 @@
 //  Copyright © 2016年 QiQi. All rights reserved.
 //
 
+//com.hzbank.drbrower.com
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

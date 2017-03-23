@@ -9,6 +9,7 @@
 #import "MenuVC.h"
 #import "MoreVC.h"
 #import "HistoryVC.h"
+#import "QumiPartScreen.h"
 
 @interface MenuVC ()
 
@@ -25,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *serviceBtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *wecomeLabel;
+
+
 
 
 @end
@@ -45,7 +48,11 @@
     }else {
         self.wecomeLabel.text = @"欢迎回来";
     }
+    
+
 }
+
+
 
 - (void)setupSubviews {
     BOOL isFullScreen = [[NSUserDefaults standardUserDefaults] boolForKey:kFullScreen];
