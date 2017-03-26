@@ -47,14 +47,11 @@
 		18FF71621E6E3F9500F7BAA3 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FF71611E6E3F9500F7BAA3 /* LoginModel.m */; };
 		18FF71681E714F1500F7BAA3 /* SortRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FF71671E714F1500F7BAA3 /* SortRealm.m */; };
 		49F0A3869EDB806CA3050A19 /* libPods-DRBrower.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DFB1C3A7BC244DD9034D74 /* libPods-DRBrower.a */; };
-		4D2F315F1E7F61A8005EB2EE /* libQumiAdSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2F315B1E7F61A8005EB2EE /* libQumiAdSDK.a */; };
-		4D2F31601E7F61A8005EB2EE /* QmPartsource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4D2F315C1E7F61A8005EB2EE /* QmPartsource.bundle */; };
 		4D2F31621E7F65B6005EB2EE /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2F31611E7F65B6005EB2EE /* libz.1.2.5.tbd */; };
 		4D2F31641E7F66F6005EB2EE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2F31631E7F66F6005EB2EE /* CFNetwork.framework */; };
 		4D2F31651E7F66FC005EB2EE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55421AB21E59A54400389B86 /* CoreTelephony.framework */; };
 		4D2F31671E7F6712005EB2EE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2F31661E7F6712005EB2EE /* StoreKit.framework */; };
 		4D2F31691E7F6722005EB2EE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2F31681E7F6722005EB2EE /* AdSupport.framework */; };
-		4D5847CD1E82CAB200C4898A /* HZBADView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5847CC1E82CAB200C4898A /* HZBADView.m */; };
 		5501623D1E7A3EFA00FEA087 /* AboutUs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5501623C1E7A3EFA00FEA087 /* AboutUs.storyboard */; };
 		550162401E7A9B4C00FEA087 /* AboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5501623F1E7A9B4C00FEA087 /* AboutUsVC.m */; };
 		550162431E7A9C9500FEA087 /* PrivacyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 550162421E7A9C9500FEA087 /* PrivacyVC.m */; };
@@ -224,18 +221,10 @@
 		18FF71661E714F1500F7BAA3 /* SortRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortRealm.h; sourceTree = "<group>"; };
 		18FF71671E714F1500F7BAA3 /* SortRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortRealm.m; sourceTree = "<group>"; };
 		29F564DE35D2B47EC672A7BD /* Pods-DRBrower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRBrower.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DRBrower/Pods-DRBrower.debug.xcconfig"; sourceTree = "<group>"; };
-		4D2F31591E7F61A8005EB2EE /* DQUConfigTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQUConfigTool.h; sourceTree = "<group>"; };
-		4D2F315A1E7F61A8005EB2EE /* DQUHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQUHeader.h; sourceTree = "<group>"; };
-		4D2F315B1E7F61A8005EB2EE /* libQumiAdSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libQumiAdSDK.a; sourceTree = "<group>"; };
-		4D2F315C1E7F61A8005EB2EE /* QmPartsource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QmPartsource.bundle; sourceTree = "<group>"; };
-		4D2F315D1E7F61A8005EB2EE /* QumiBannerAD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QumiBannerAD.h; sourceTree = "<group>"; };
-		4D2F315E1E7F61A8005EB2EE /* QumiPartScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QumiPartScreen.h; sourceTree = "<group>"; };
 		4D2F31611E7F65B6005EB2EE /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		4D2F31631E7F66F6005EB2EE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4D2F31661E7F6712005EB2EE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4D2F31681E7F6722005EB2EE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		4D5847CB1E82CAB200C4898A /* HZBADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZBADView.h; sourceTree = "<group>"; };
-		4D5847CC1E82CAB200C4898A /* HZBADView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZBADView.m; sourceTree = "<group>"; };
 		5501623C1E7A3EFA00FEA087 /* AboutUs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutUs.storyboard; sourceTree = "<group>"; };
 		5501623E1E7A9B4C00FEA087 /* AboutUsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsVC.h; sourceTree = "<group>"; };
 		5501623F1E7A9B4C00FEA087 /* AboutUsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsVC.m; sourceTree = "<group>"; };
@@ -425,7 +414,6 @@
 				55E5BC321E67C9CC00A7CF9E /* UIKit.framework in Frameworks */,
 				55E5BC301E67C9BD00A7CF9E /* Foundation.framework in Frameworks */,
 				55E5BC2E1E67C9AA00A7CF9E /* AudioToolbox.framework in Frameworks */,
-				4D2F315F1E7F61A8005EB2EE /* libQumiAdSDK.a in Frameworks */,
 				55E5BC2C1E67C99600A7CF9E /* AVFoundation.framework in Frameworks */,
 				55E5BC291E67C96800A7CF9E /* CoreVideo.framework in Frameworks */,
 				55E5BC211E67C92800A7CF9E /* CoreMedia.framework in Frameworks */,
@@ -504,21 +492,6 @@
 				18D61F2D1E66B3DF0077BE5C /* SortTagModel.m */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		4D2F31581E7F61A8005EB2EE /* QumiADLib */ = {
-			isa = PBXGroup;
-			children = (
-				4D5847CB1E82CAB200C4898A /* HZBADView.h */,
-				4D5847CC1E82CAB200C4898A /* HZBADView.m */,
-				4D2F31591E7F61A8005EB2EE /* DQUConfigTool.h */,
-				4D2F315A1E7F61A8005EB2EE /* DQUHeader.h */,
-				4D2F315B1E7F61A8005EB2EE /* libQumiAdSDK.a */,
-				4D2F315C1E7F61A8005EB2EE /* QmPartsource.bundle */,
-				4D2F315D1E7F61A8005EB2EE /* QumiBannerAD.h */,
-				4D2F315E1E7F61A8005EB2EE /* QumiPartScreen.h */,
-			);
-			path = QumiADLib;
 			sourceTree = "<group>";
 		};
 		550162361E7A3E5800FEA087 /* AboutUs */ = {
@@ -718,7 +691,6 @@
 		557DC0651E08DF8100ECFFDE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4D2F31581E7F61A8005EB2EE /* QumiADLib */,
 				557DC0661E08DF8100ECFFDE /* main.m */,
 				557DC0A31E0A262300ECFFDE /* DRBrowser-Prefix.pch */,
 			);
@@ -1084,7 +1056,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5501623D1E7A3EFA00FEA087 /* AboutUs.storyboard in Resources */,
-				4D2F31601E7F61A8005EB2EE /* QmPartsource.bundle in Resources */,
 				5510256B1E7551D300303E62 /* NavView.xib in Resources */,
 				55E5BC691E6918BC00A7CF9E /* Comment.storyboard in Resources */,
 				551025601E727A4600303E62 /* MoreNewsCell.xib in Resources */,
@@ -1239,7 +1210,6 @@
 				18FF715D1E6D5D1600F7BAA3 /* ForgetPsdVC.m in Sources */,
 				551025581E70F3B500303E62 /* GenderVC.m in Sources */,
 				55421AA41E59979900389B86 /* ShareVC.m in Sources */,
-				4D5847CD1E82CAB200C4898A /* HZBADView.m in Sources */,
 				5510255B1E70F69100303E62 /* UserInfo.m in Sources */,
 				552ADBD51E24EEB5007036CA /* DRLocaldData.m in Sources */,
 				557A940A1E5EDD7D006A2466 /* RecordModel.m in Sources */,
