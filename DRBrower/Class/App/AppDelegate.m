@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import <Bugly/Bugly.h>
 
+#pragma mark - 有米
+#import "UMSpotAd.h"
+
 #define APPKEY @"1b734ca46d7e8"
 #define BUGLY_APPKEY @"749ac90a49"
 @interface AppDelegate ()<CLLocationManagerDelegate>
@@ -20,6 +23,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [self umAd];
     
     [NSThread sleepForTimeInterval:2];
     //保存系统亮度
@@ -161,6 +165,22 @@
                  }];
 }
 
+
+#pragma mark - 有米广告
+-(void)umAd
+{
+    //appid 和 secretId 替换成您创建的应用对应的值
+    
+    NSString *appid = @"5a1bfab18a28173f";
+    NSString *secretId = @"40db874d36fe6359";
+    
+    //第一步 初始化id和key
+    [UMSpotAd initAppId:appid secretId:secretId];
+    
+    //第二步 初始化广告
+    [UMSpotAd initAdDeveLoper:kTypePortrait];//填上你对应的横竖屏模式,注意：如果您的App只支持竖屏请选择kTypePortrait，只支持横屏请选择kTypeLandscape，横竖屏都支持请选择kTypeBoth
+
+}
 
 
 @end

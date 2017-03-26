@@ -12,6 +12,9 @@
 #import "TitleLabel.h"
 #import "MenuVC.h"
 
+#pragma mark - 有米
+#import "UMSpotAd.h"
+
 @interface NewsPageVC ()<MenuVCDelegate,HomeToolBarDelegate>
 
 @property (weak, nonatomic) IBOutlet HomeToolBar *homeToolBar;
@@ -57,7 +60,33 @@
     lable.scale = 1.0;
     self.bigScrollView.showsHorizontalScrollIndicator = NO;
 
+
+#pragma mark - 有米
+    [UMSpotAd setAdController:self];
+    //设置广告点击后的回调（可选）
+    [UMSpotAd clickAdAction:^(BOOL flag){
+        //广告被点击的回调。
+    }];
+
+    [self spotSDKAction];
+
 }
+
+#pragma mark - 有米
+- (void)spotSDKAction
+{
+    
+    [UMSpotAd showAdAction:^(BOOL flag){
+        if (flag) {
+            NSLog(@"展示成功");
+        }
+        else{
+            NSLog(@"展示失败");
+        }
+    }];
+}
+
+
 -(void)backButtonAction:(UIButton *)button {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

@@ -52,6 +52,8 @@
 		4D2F31651E7F66FC005EB2EE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55421AB21E59A54400389B86 /* CoreTelephony.framework */; };
 		4D2F31671E7F6712005EB2EE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2F31661E7F6712005EB2EE /* StoreKit.framework */; };
 		4D2F31691E7F6722005EB2EE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2F31681E7F6722005EB2EE /* AdSupport.framework */; };
+		4D3705FE1E87FD3300752C09 /* ummobspot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3705FC1E87FD3300752C09 /* ummobspot.a */; };
+		4D3705FF1E87FD3300752C09 /* umspot.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4D3705FD1E87FD3300752C09 /* umspot.bundle */; };
 		5501623D1E7A3EFA00FEA087 /* AboutUs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5501623C1E7A3EFA00FEA087 /* AboutUs.storyboard */; };
 		550162401E7A9B4C00FEA087 /* AboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5501623F1E7A9B4C00FEA087 /* AboutUsVC.m */; };
 		550162431E7A9C9500FEA087 /* PrivacyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 550162421E7A9C9500FEA087 /* PrivacyVC.m */; };
@@ -225,6 +227,11 @@
 		4D2F31631E7F66F6005EB2EE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4D2F31661E7F6712005EB2EE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4D2F31681E7F6722005EB2EE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		4D3705F91E87FD3300752C09 /* UMSplashAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSplashAd.h; sourceTree = "<group>"; };
+		4D3705FA1E87FD3300752C09 /* UMSpotAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSpotAd.h; sourceTree = "<group>"; };
+		4D3705FB1E87FD3300752C09 /* publicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = publicHeader.h; sourceTree = "<group>"; };
+		4D3705FC1E87FD3300752C09 /* ummobspot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = ummobspot.a; sourceTree = "<group>"; };
+		4D3705FD1E87FD3300752C09 /* umspot.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = umspot.bundle; sourceTree = "<group>"; };
 		5501623C1E7A3EFA00FEA087 /* AboutUs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutUs.storyboard; sourceTree = "<group>"; };
 		5501623E1E7A9B4C00FEA087 /* AboutUsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsVC.h; sourceTree = "<group>"; };
 		5501623F1E7A9B4C00FEA087 /* AboutUsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsVC.m; sourceTree = "<group>"; };
@@ -407,6 +414,7 @@
 				4D2F31651E7F66FC005EB2EE /* CoreTelephony.framework in Frameworks */,
 				4D2F31641E7F66F6005EB2EE /* CFNetwork.framework in Frameworks */,
 				55E5BC271E67C95000A7CF9E /* ImageIO.framework in Frameworks */,
+				4D3705FE1E87FD3300752C09 /* ummobspot.a in Frameworks */,
 				55E5BC231E67C93200A7CF9E /* QuartzCore.framework in Frameworks */,
 				4D2F31621E7F65B6005EB2EE /* libz.1.2.5.tbd in Frameworks */,
 				55424D221E792E45001FF75F /* libc++.tbd in Frameworks */,
@@ -492,6 +500,26 @@
 				18D61F2D1E66B3DF0077BE5C /* SortTagModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		4D3705F71E87FD3300752C09 /* spotlib */ = {
+			isa = PBXGroup;
+			children = (
+				4D3705F81E87FD3300752C09 /* include */,
+				4D3705FB1E87FD3300752C09 /* publicHeader.h */,
+				4D3705FC1E87FD3300752C09 /* ummobspot.a */,
+				4D3705FD1E87FD3300752C09 /* umspot.bundle */,
+			);
+			path = spotlib;
+			sourceTree = "<group>";
+		};
+		4D3705F81E87FD3300752C09 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				4D3705F91E87FD3300752C09 /* UMSplashAd.h */,
+				4D3705FA1E87FD3300752C09 /* UMSpotAd.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 		550162361E7A3E5800FEA087 /* AboutUs */ = {
@@ -663,6 +691,7 @@
 		557DC0641E08DF8100ECFFDE /* DRBrower */ = {
 			isa = PBXGroup;
 			children = (
+				4D3705F71E87FD3300752C09 /* spotlib */,
 				557DC07C1E08E08400ECFFDE /* Class */,
 				557DC06B1E08DF8100ECFFDE /* ViewController.h */,
 				557DC06C1E08DF8100ECFFDE /* ViewController.m */,
@@ -1084,6 +1113,7 @@
 				557DC0B21E0B658300ECFFDE /* ThreePicCell.xib in Resources */,
 				189FC7BF1E6583CC005E1C73 /* More.storyboard in Resources */,
 				551025521E6FBFE600303E62 /* SettingCell.xib in Resources */,
+				4D3705FF1E87FD3300752C09 /* umspot.bundle in Resources */,
 				550162491E7B9C0500FEA087 /* agreement.html in Resources */,
 				5517EAB91E1C8AE1008B3853 /* HomeTopView.xib in Resources */,
 			);
@@ -1391,6 +1421,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DRBrower/QumiADLib",
+					"$(PROJECT_DIR)/DRBrower/spotlib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hzbank.drbrower.com;
@@ -1418,6 +1449,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DRBrower/QumiADLib",
+					"$(PROJECT_DIR)/DRBrower/spotlib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hzbank.drbrower.com;

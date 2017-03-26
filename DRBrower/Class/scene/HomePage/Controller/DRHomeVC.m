@@ -37,6 +37,8 @@
 #import "NewsPageVC.h"
 #import "NavView.h"
 
+#pragma mark - 有米
+#import "UMSpotAd.h"
 
 static NSString *const onePicCellIdentifier = @"OnePicCell";
 static NSString *const threePicCellIdentifier = @"ThreePicCell";
@@ -114,6 +116,16 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
         [self getWeatherData:[NSString stringWithFormat:@"%@%@",city,sublocality]];
     }
     
+    
+    
+#pragma mark - 有米
+    [UMSpotAd setAdController:self];
+    //设置广告点击后的回调（可选）
+    [UMSpotAd clickAdAction:^(BOOL flag){
+        //广告被点击的回调。
+    }];
+
+    [self spotSDKAction];
 
 }
 
@@ -376,6 +388,21 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
     [self presentViewController:formSheetController animated:YES completion:nil];
     
     
+    [self spotSDKAction];
+}
+
+#pragma mark - 有米
+- (void)spotSDKAction
+{
+    
+    [UMSpotAd showAdAction:^(BOOL flag){
+        if (flag) {
+            NSLog(@"展示成功");
+        }
+        else{
+            NSLog(@"展示失败");
+        }
+    }];
 }
 
 
