@@ -11,6 +11,7 @@
 
 #pragma mark - 有米
 #import "UMSpotAd.h"
+#import "UMVideoAd.h"
 
 #define APPKEY @"1b734ca46d7e8"
 #define BUGLY_APPKEY @"749ac90a49"
@@ -180,6 +181,9 @@
     //第二步 初始化广告
     [UMSpotAd initAdDeveLoper:kTypePortrait];//填上你对应的横竖屏模式,注意：如果您的App只支持竖屏请选择kTypePortrait，只支持横屏请选择kTypeLandscape，横竖屏都支持请选择kTypeBoth
 
+    
+    
+    [UMVideoAd initAppID:@"5a1bfab18a28173f" appKey:@"40db874d36fe6359" cacheVideo:YES];
 }
 
 
