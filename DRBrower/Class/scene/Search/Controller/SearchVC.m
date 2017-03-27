@@ -21,6 +21,7 @@
 #import "LoginVC.h"
 #import "LoginModel.h"
 
+#import "HZBWaitView.h"
 #pragma mark - 有米
 #import "UMVideoAd.h"
 
@@ -67,13 +68,17 @@
     [UMVideoAd videoSpotPlay:[[[UIApplication sharedApplication]keyWindow] rootViewController] videoSuperView:[[[UIApplication sharedApplication]keyWindow] rootViewController].view videoPlayFinishCallBackBlock:^(BOOL isFinishPlay){
         if (isFinishPlay) {
             NSLog(@"视频播放结束");
-            //            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"视频播放结束" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-            //            [alert show];
+            
+            [HZBWaitView show:@"视频播放结束"];
+                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"视频播放结束" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                        [alert show];
             //            [alert release];
         }else{
             NSLog(@"中途退出");
-            //            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"中途退出" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-            //            [alert show];
+            [HZBWaitView show:@"中途退出"];
+
+                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"中途退出" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                        [alert show];
             //            [alert release];
         }
         
@@ -82,14 +87,17 @@
         NSString *message = @"";
         if (isLegal) {
             message = @"此次播放有效";
+
         }else{
             message = @"此次播放无效";
+
         }
         //                UIImage *image = [MobiVideoAd oWVideoImage];
         NSLog(@"是否有效：%@",message);
-        //        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:[NSString stringWithFormat:@"是否有效：%@",message] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        //        [alert show];
-        //        [alert release];
+        [HZBWaitView show:message];
+
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:[NSString stringWithFormat:@"是否有效：%@",message] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alert show];
     }];
 }
 

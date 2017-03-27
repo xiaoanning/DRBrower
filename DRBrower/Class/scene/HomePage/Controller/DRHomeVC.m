@@ -37,6 +37,7 @@
 #import "NewsPageVC.h"
 #import "NavView.h"
 
+#import "HZBWaitView.h"
 #pragma mark - 有米
 #import "UMSpotAd.h"
 
@@ -398,9 +399,14 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
     [UMSpotAd showAdAction:^(BOOL flag){
         if (flag) {
             NSLog(@"展示成功");
+            
+
+            [HZBWaitView show:@"展示成功"];
         }
         else{
             NSLog(@"展示失败");
+            [HZBWaitView show:@"展示失败"];
+
         }
     }];
 }
