@@ -65,6 +65,16 @@
 
 #pragma mark - 有米
 -(void)spotVide{
+    
+    [UMVideoAd videoHasCanPlayVideo:^(int isHaveVideoStatue){
+        
+        NSLog(@"      %d",isHaveVideoStatue);
+        NSString * str = isHaveVideoStatue == 0 ? @"可以播放视频" : (isHaveVideoStatue == 1 ? @"没有可播放视频":@"网络不好");
+        [HZBWaitView show:[NSString stringWithFormat:@"是否有广告 %@",str]];
+
+    }];
+    
+    
     [UMVideoAd videoSpotPlay:[[[UIApplication sharedApplication]keyWindow] rootViewController] videoSuperView:[[[UIApplication sharedApplication]keyWindow] rootViewController].view videoPlayFinishCallBackBlock:^(BOOL isFinishPlay){
         if (isFinishPlay) {
             NSLog(@"视频播放结束");
