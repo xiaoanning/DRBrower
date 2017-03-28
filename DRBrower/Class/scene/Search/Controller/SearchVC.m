@@ -21,7 +21,13 @@
 #import "LoginVC.h"
 #import "LoginModel.h"
 
-@interface SearchVC ()<HomeToolBarDelegate,UIWebViewDelegate,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler,MenuVCDelegate,UIScrollViewDelegate, PYSearchViewControllerDelegate>
+
+#import "HZBWaitView.h"
+
+#import "CSBVideoAd.h"
+
+
+@interface SearchVC ()<HomeToolBarDelegate,UIWebViewDelegate,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler,MenuVCDelegate,UIScrollViewDelegate, PYSearchViewControllerDelegate ,CSBVideoAdDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *titleBtn;
 @property (weak, nonatomic) IBOutlet HomeToolBar *homeToolBar;
 @property (weak, nonatomic) IBOutlet UIView *navBar;
@@ -53,6 +59,17 @@
     [self webViewData];
 
     self.historyArray = [NSMutableArray arrayWithCapacity:5];
+    
+    
+    
+    
+    
+    
+    [CSBVideoAd sharedInstance].delegate = self;
+    [[CSBVideoAd sharedInstance] loadVideoAdWithOrientation:YES];
+
+
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -63,6 +80,9 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    
+    
+
 }
 
 - (void)isFullScreen {
@@ -548,5 +568,52 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+#pragma mark - CSBVideoAdDelegate
+
+// 视频广告加载成功
+- (void)csbVideoAdLoadSuccess:(CSBVideoAd *)videoAd
+{
+    [HZBWaitView show:@"视频广告加载成功"];
+    NSLog(@"----------%s", __PRETTY_FUNCTION__);
+    
+    [[CSBVideoAd sharedInstance] showVideoAdWithOrientation:YES];
+
+}
+
+// 视频广告加载失败
+- (void)csbVideoAd:(CSBVideoAd *)videoAd loadFailure:(NSString *)errorMsg
+{
+    [HZBWaitView show:@"视频广告加载失败"];
+
+    NSLog(@"----------%s（%@）", __PRETTY_FUNCTION__, errorMsg);
+}
+
+// 视频广告开始播放
+- (void)csbVideoAdStartPlayVideo:(CSBVideoAd *)videoAd
+{
+    [HZBWaitView show:@"视频广告开始播放"];
+
+    NSLog(@"----------%s", __PRETTY_FUNCTION__);
+}
+
+// 视频广告播放完成
+- (void)csbVideoAdPlayFinished:(CSBVideoAd *)videoAd
+{
+    [HZBWaitView show:@"视频广告播放完成"];
+
+    NSLog(@"----------%s", __PRETTY_FUNCTION__);
+}
+
+// 视频广告关闭完成
+- (void)csbVideoAdDidDismiss:(CSBVideoAd *)videoAd
+{
+    [HZBWaitView show:@"视频广告关闭完成"];
+
+    NSLog(@"----------%s", __PRETTY_FUNCTION__);
+}
+
+
 
 @end
