@@ -9,7 +9,6 @@
 #import "MenuVC.h"
 #import "MoreVC.h"
 #import "HistoryVC.h"
-#import "QumiPartScreen.h"
 
 @interface MenuVC ()
 

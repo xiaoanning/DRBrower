@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import <Bugly/Bugly.h>
-#import "DQUConfigTool.h"
 
 #define APPKEY @"1b734ca46d7e8"
 #define BUGLY_APPKEY @"749ac90a49"
@@ -165,29 +164,9 @@
 
 -(void)initAD
 {
-    //初始化连接设置  APPID:应用ID   qmsecretKey:应用密钥
-    [DQUConfigTool startWithDQUAPPID:@"55dcf34a2e4c74d2" qmsecretKey:@"08becf5d6dcfac8a"];
-    //初始化连接成功的回调方法
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(qumiConnectSuccess) name:DQU_CONNECT_SUCCESS object:nil];
-    //初始化连接失败的回调方法
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(qumiConnectFailed:) name:DQU_CONNECT_FAILED object:nil];
 
 }
 
-//趣米广告初始化连接成功
-- (void)qumiConnectSuccess
-{
-    NSLog(@"初始化连接成功");
-}
-
-- (void)qumiConnectFailed:(NSNotification*)notification
-{
-    //通知传过来的值
-    NSDictionary *dic = [notification userInfo];
-    //用户获取积分的状态，是否获取成功
-    NSString *isConnectFailed = [dic objectForKey:DQU_CONNECT_FAILED];
-    NSLog(@"初始化连接失败的信息：%@",isConnectFailed);
-}
 
 
 @end

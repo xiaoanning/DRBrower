@@ -37,9 +37,9 @@
 #import "NewsPageVC.h"
 #import "NavView.h"
 
-#import "QumiBannerAD.h"
-#import "HZBADView.h"
-#import "QumiPartScreen.h"
+#import "HZBWaitView.h"
+
+#import "JOYConnect.h"
 
 
 //当前设备是iPad
@@ -55,7 +55,7 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
 #define UP_LOAD @"上拉"
 #define DOWN_LOAD @"下拉"
 
-@interface DRHomeVC ()<MenuVCDelegate, QRCodeReaderDelegate, CLLocationManagerDelegate, NewsMenuDelegate, NavViewDelegate, MoreNewsCellDelegate ,QumiBannerADDelegate>
+@interface DRHomeVC ()<MenuVCDelegate, QRCodeReaderDelegate, CLLocationManagerDelegate, NewsMenuDelegate, NavViewDelegate, MoreNewsCellDelegate ,JOYConnectDelegate>
 
 @property (weak, nonatomic) IBOutlet HomeToolBar *homeToolBar;
 @property (strong, nonatomic) HomeTopView *top;
@@ -74,9 +74,6 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
 @property (nonatomic,assign) BOOL loginSuccess;
 
 
-@property (nonatomic,retain) QumiBannerAD      *qumiBannerAD;
-
-@property (nonatomic,retain) QumiPartScreen   *qumiInterCutView;
 
 @end
 
@@ -97,7 +94,6 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
     [super viewDidLoad];
 //    self.automaticallyAdjustsScrollViewInsets = YES;
     
-    self.qumiInterCutView = [[QumiPartScreen alloc] init];
 
     
     NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
@@ -398,7 +394,10 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
 -(void)showad
 
 {
-    [HZBADView addRootViewController:self];
+    //积分墙的相关调用
+    
+    [JOYConnect showList:self];
+
     
 }
 //menu-share
@@ -783,64 +782,102 @@ static NSString *const moreNewsCellIdentifier = @"MoreNewsCell";
 
 -(void)initAD
 {
-    //创建一个banner条广告视图
-    self.qumiBannerAD = [[QumiBannerAD alloc] initWithQumiBannerAD:self];
-    //放置广告条的位置
-    if (isPhone)
-    {
-        //设置广告视图的位置和大小  趣米广告条的尺寸：iPhone手机上是320*50，iPad上是768*100。
-        self.qumiBannerAD.frame = CGRectMake(0, 20, CGRectGetWidth([[UIScreen mainScreen]bounds]), 90);
-    }
-    else
-    {
-        self.qumiBannerAD.frame = CGRectMake(0, 20, QUMI_AD_SIZE_768x100.width, QUMI_AD_SIZE_768x100.height);
-    }
 
-    //设置代理
-    self.qumiBannerAD.delegate = self;
-    //开始加载和展示广告 如果请求广告，请填写YES，如果不请求广告，请填写NO
-    [self.qumiBannerAD qmLoadBannerAd:YES];
-    //将广告视图添加到父视图中去
-    [self.view addSubview:self.qumiBannerAD];
+    [JOYConnect getConnect:@"4920d09331d898d7911ee0c04c600b36" pid:@"appstore"];
+    [JOYConnect sharedJOYConnect].delegate=self;
+
+
+    //广告条的相关调用
+    [JOYConnect showBan:self adSize: E_SIZE_414x70 showX:20 showY:0];
+    
+    //插屏广告的相关调用
+    [JOYConnect showPop:self];
 
 
 }
 
 
-#pragma mark -
-#pragma mark QumiBannerADDelegate Methods
-//加载广告成功后，回调该方法
-- (void)qmAdViewSuccessToLoadAd:(QumiBannerAD *)adView
-{
-    NSLog(@"banner广告加载成功！");
+- (void)onConnectSuccess;{
+    NSLog(@"连接成功");
+    [HZBWaitView show:@"连接成功"];
+
+    NSMutableDictionary * params=[JOYConnect getConfigItems];
+    NSString * url=params[@"url"];
+    NSLog(@"url=%@",url);
     
-    //    [adView performSelector:@selector(AzpywAOAqhnomOQC5cde72a14f2543c6)];
-    
-    //    adView.hidden = YES ;
-    
-    for (UIView * sub1 in self.view.subviews)
-    {
-        NSLog(@"111 %@",[sub1 class]);
-        
-        for (UIView * sub2 in sub1.subviews)
-        {
-            NSLog(@"222 %@",[sub2 class]);
-            
-        }
-    }
-    
-}
-//加载广告失败后，回调该方法
-- (void)qmAdViewFailToLoadAd:(QumiBannerAD *)adView qmWithError:(NSError *)error
-{
-    NSLog(@"banner广告加载失败，失败信息是：%@",error);
+    [HZBWaitView show:[NSString stringWithFormat:@"url=%@",url]];
 }
 
-- (void)qmAdViewClicked:(QumiBannerAD *)adView
-{
-    NSLog(@"点击banner广告！");
-    
-    [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"action3"];
+- (void)onConnectFailed:(NSString *)error;{
+    NSLog(@"连接失败:%@",error);
+    [HZBWaitView show:[NSString stringWithFormat:@"连接失败:%@",error]];
+
+}
+
+- (void)onBannerShow;{//仅在第一次调用的时候通知
+    NSLog(@"广告条展示");
+    [HZBWaitView show:@"广告条展示"];
+
+}
+
+- (void)onBannerShowFailed:(NSString *)error;{
+    NSLog(@"广告条展示失败:%@",error);
+    [HZBWaitView show:[NSString stringWithFormat:@"广告条展示失败:%@",error]];
+
+}
+
+- (void)onBannerClick;{
+    NSLog(@"广告条点击");
+    [HZBWaitView show:@"广告条点击"];
+
+}
+
+- (void)onBannerClose;{
+    NSLog(@"广告条关闭");
+    [HZBWaitView show:@"广告条关闭"];
+
+}
+
+- (void)onPopShow;{
+    NSLog(@"插屏展示");
+    [HZBWaitView show:@"插屏展示"];
+
+}
+
+- (void)onPopShowFailed:(NSString *)error;{
+    NSLog(@"插屏展示失败:%@",error);
+    [HZBWaitView show:[NSString stringWithFormat:@"插屏展示失败:%@",error]];
+
+}
+
+- (void)onPopClose;{
+    NSLog(@"插屏关闭");
+    [HZBWaitView show:@"插屏关闭"];
+
+}
+
+- (void)onPopClick;{
+    NSLog(@"插屏点击");
+    [HZBWaitView show:@"插屏点击"];
+
+}
+
+- (void)onListOpen;{
+    NSLog(@"列表展示");
+    [HZBWaitView show:@"列表展示"];
+
+}
+
+-(void)onListShowFailed:(NSString *)error;{
+    NSLog(@"列表展示失败:%@",error);
+    [HZBWaitView show:[NSString stringWithFormat:@"列表展示失败:%@",error]];
+
+}
+
+- (void)onListClose;{
+    NSLog(@"列表关闭");
+    [HZBWaitView show:@"列表关闭"];
+
 }
 
 
